@@ -1,6 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [Chapter 1](homework/markdown.md)
+* [MarkDown](homework/markdown.md)
 
 
