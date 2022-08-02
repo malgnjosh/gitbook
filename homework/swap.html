@@ -172,30 +172,18 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="aws-swap-&#xBA54;&#xBAA8;&#xB9AC;-&#xC124;&#xC815;&#xBC29;&#xBC95;">AWS SWAP &#xBA54;&#xBAA8;&#xB9AC; &#xC124;&#xC815;&#xBC29;&#xBC95;</h1>
-<ol>
-<li>&#xC2A4;&#xC651; &#xD30C;&#xC77C; &#xC0DD;&#xC131;</li>
-</ol>
+<h2 id="1-&#xC2A4;&#xC651;-&#xD30C;&#xC77C;-&#xC0DD;&#xC131;">1. &#xC2A4;&#xC651; &#xD30C;&#xC77C; &#xC0DD;&#xC131;</h2>
 <pre><code>sudo dd if=/dev/zero of=/swapfile bs=128M count=32
-</code></pre><ol>
-<li>&#xAD8C;&#xD55C; &#xBD80;&#xC5EC;</li>
-</ol>
+</code></pre><h2 id="2-&#xAD8C;&#xD55C;-&#xBD80;&#xC5EC;">2. &#xAD8C;&#xD55C; &#xBD80;&#xC5EC;</h2>
 <pre><code>sudo chmod 600 /swapfile
-</code></pre><ol>
-<li>SWAP AREA &#xC124;&#xC815;</li>
-</ol>
+</code></pre><h2 id="3-swap-area-&#xC124;&#xC815;">3. SWAP AREA &#xC124;&#xC815;</h2>
 <pre><code>sudo mkswap /swapfile
-</code></pre><ol>
-<li>&#xD655;&#xC778;</li>
-</ol>
+</code></pre><h2 id="4-&#xD655;&#xC778;">4. &#xD655;&#xC778;</h2>
 <pre><code>sudo swapon -s
-</code></pre><ol>
-<li>&#xBD80;&#xD305;&#xC2DC; &#xC2A4;&#xC651;&#xD30C;&#xC77C; &#xD65C;&#xC131;&#xD654;</li>
-</ol>
+</code></pre><h2 id="5-&#xBD80;&#xD305;&#xC2DC;-&#xC2A4;&#xC651;&#xD30C;&#xC77C;-&#xD65C;&#xC131;&#xD654;">5. &#xBD80;&#xD305;&#xC2DC; &#xC2A4;&#xC651;&#xD30C;&#xC77C; &#xD65C;&#xC131;&#xD654;</h2>
 <pre><code>sudo vi /etc/fastab
 </code></pre><p>&#xB9C8;&#xC9C0;&#xB9C9; &#xC904;&#xC5D0; /swapfile swap swap defaults 0 0 &#xCD94;&#xAC00;</p>
-<ol>
-<li>&#xBA54;&#xBAA8;&#xB9AC; &#xD655;&#xC778;</li>
-</ol>
+<h2 id="6-&#xBA54;&#xBAA8;&#xB9AC;-&#xD655;&#xC778;">6. &#xBA54;&#xBAA8;&#xB9AC; &#xD655;&#xC778;</h2>
 <pre><code>free -h
 </code></pre>
                                 
@@ -236,7 +224,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"AWS swap","level":"1.3","depth":1,"previous":{"title":"MarkDown","level":"1.2","depth":1,"path":"homework/markdown.md","ref":"homework/markdown.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/swap.md","mtime":"2022-08-02T23:25:40.877Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-02T23:27:51.338Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"AWS swap","level":"1.3","depth":1,"previous":{"title":"MarkDown","level":"1.2","depth":1,"path":"homework/markdown.md","ref":"homework/markdown.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/swap.md","mtime":"2022-08-02T23:30:20.308Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-02T23:30:25.201Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
