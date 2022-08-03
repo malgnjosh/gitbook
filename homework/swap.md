@@ -21,9 +21,10 @@ sudo mkswap /swapfile
 
 ```
 
-##4. 확인
+##4. SWAP AREA에 SWAP 파일 추가 및 확인
 
 ```
+sudo swapon /swapfile
 sudo swapon -s
 
 ```
