@@ -31,7 +31,7 @@ sudo swapon -s
 ##5. 부팅시 스왑파일 활성화
 
 ```
-sudo vi /etc/fastab
+sudo vi /etc/fstab
 
 ```
 마지막 줄에 /swapfile swap swap defaults 0 0 추가
