@@ -90,3 +90,54 @@ yum의 설정 파일은 /etc/yum.conf 이다.
 # yum whatprovides [특정파일]
 ```
 
+## 3\. Repository
+
+yum repository는 yum을 통해 설치할 수 있는 package들의 저장소이다. 
+
+repository들은 /etc/yum.repos.d 에 .repo 형태로 존재한다.
+
+### 1) 활성화된 레포지토리 리스트 확인
+
+```
+# yum repolist
+```
+
+### 2) 레포지토리 추가하기
+
+위 repo의 경로에 새로운 .repo 파일을 생성한다.
+
+```
+# vi myrepo.repo
+```
+
+repo 파일의 구조는 다음과 같다.
+
+```
+name=이름
+baseurl=주소
+enabled=1
+gpgcheck=1
+gpgkey=주소
+```
+
+gpgcheck는 서명키 사용 여부를 체크하는 옵션이다. GPG는 RSA를 이용한 암호화 방식 중 하나이다.
+
+### 3) 레포지토리 삭제하기
+
+위 repo 경로에서 base를 제외한 파일들을 삭제하면 된다.
+
+```
+# rm -rf myrepo.repo
+```
+
+cache는 /var/cache/yum/ 에 존재하며
+
+headers, packages, metadata는 각각 yum clean으로 삭제해준다.
+
+```
+# yum clean headers
+# yum clean packages
+# yum clean metadata
+```
+
+
