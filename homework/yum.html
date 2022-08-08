@@ -270,6 +270,29 @@
 <pre><code># yum list available
 </code></pre><h3 id="8-&#xD2B9;&#xC815;-&#xD30C;&#xC77C;&#xC744;-&#xC81C;&#xACF5;&#xD558;&#xB294;-&#xD328;&#xD0A4;&#xC9C0;">8) &#xD2B9;&#xC815; &#xD30C;&#xC77C;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xD328;&#xD0A4;&#xC9C0;</h3>
 <pre><code># yum whatprovides [&#xD2B9;&#xC815;&#xD30C;&#xC77C;]
+</code></pre><h2 id="3-repository">3. Repository</h2>
+<p>yum repository&#xB294; yum&#xC744; &#xD1B5;&#xD574; &#xC124;&#xCE58;&#xD560; &#xC218; &#xC788;&#xB294; package&#xB4E4;&#xC758; &#xC800;&#xC7A5;&#xC18C;&#xC774;&#xB2E4;. </p>
+<p>repository&#xB4E4;&#xC740; /etc/yum.repos.d &#xC5D0; .repo &#xD615;&#xD0DC;&#xB85C; &#xC874;&#xC7AC;&#xD55C;&#xB2E4;.</p>
+<h3 id="1-&#xD65C;&#xC131;&#xD654;&#xB41C;-&#xB808;&#xD3EC;&#xC9C0;&#xD1A0;&#xB9AC;-&#xB9AC;&#xC2A4;&#xD2B8;-&#xD655;&#xC778;">1) &#xD65C;&#xC131;&#xD654;&#xB41C; &#xB808;&#xD3EC;&#xC9C0;&#xD1A0;&#xB9AC; &#xB9AC;&#xC2A4;&#xD2B8; &#xD655;&#xC778;</h3>
+<pre><code># yum repolist
+</code></pre><h3 id="2-&#xB808;&#xD3EC;&#xC9C0;&#xD1A0;&#xB9AC;-&#xCD94;&#xAC00;&#xD558;&#xAE30;">2) &#xB808;&#xD3EC;&#xC9C0;&#xD1A0;&#xB9AC; &#xCD94;&#xAC00;&#xD558;&#xAE30;</h3>
+<p>&#xC704; repo&#xC758; &#xACBD;&#xB85C;&#xC5D0; &#xC0C8;&#xB85C;&#xC6B4; .repo &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD55C;&#xB2E4;.</p>
+<pre><code># vi myrepo.repo
+</code></pre><p>repo &#xD30C;&#xC77C;&#xC758; &#xAD6C;&#xC870;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xB2E4;.</p>
+<pre><code>name=&#xC774;&#xB984;
+baseurl=&#xC8FC;&#xC18C;
+enabled=1
+gpgcheck=1
+gpgkey=&#xC8FC;&#xC18C;
+</code></pre><p>gpgcheck&#xB294; &#xC11C;&#xBA85;&#xD0A4; &#xC0AC;&#xC6A9; &#xC5EC;&#xBD80;&#xB97C; &#xCCB4;&#xD06C;&#xD558;&#xB294; &#xC635;&#xC158;&#xC774;&#xB2E4;. GPG&#xB294; RSA&#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xC554;&#xD638;&#xD654; &#xBC29;&#xC2DD; &#xC911; &#xD558;&#xB098;&#xC774;&#xB2E4;.</p>
+<h3 id="3-&#xB808;&#xD3EC;&#xC9C0;&#xD1A0;&#xB9AC;-&#xC0AD;&#xC81C;&#xD558;&#xAE30;">3) &#xB808;&#xD3EC;&#xC9C0;&#xD1A0;&#xB9AC; &#xC0AD;&#xC81C;&#xD558;&#xAE30;</h3>
+<p>&#xC704; repo &#xACBD;&#xB85C;&#xC5D0;&#xC11C; base&#xB97C; &#xC81C;&#xC678;&#xD55C; &#xD30C;&#xC77C;&#xB4E4;&#xC744; &#xC0AD;&#xC81C;&#xD558;&#xBA74; &#xB41C;&#xB2E4;.</p>
+<pre><code># rm -rf myrepo.repo
+</code></pre><p>cache&#xB294; /var/cache/yum/ &#xC5D0; &#xC874;&#xC7AC;&#xD558;&#xBA70;</p>
+<p>headers, packages, metadata&#xB294; &#xAC01;&#xAC01; yum clean&#xC73C;&#xB85C; &#xC0AD;&#xC81C;&#xD574;&#xC900;&#xB2E4;.</p>
+<pre><code># yum clean headers
+# yum clean packages
+# yum clean metadata
 </code></pre>
                                 
                                 </section>
@@ -309,7 +332,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"yum","level":"1.4.2","depth":2,"previous":{"title":"vi","level":"1.4.1","depth":2,"path":"homework/vi.md","ref":"homework/vi.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/yum.md","mtime":"2022-08-08T08:28:27.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-08T08:29:19.462Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"yum","level":"1.4.2","depth":2,"previous":{"title":"vi","level":"1.4.1","depth":2,"path":"homework/vi.md","ref":"homework/vi.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/yum.md","mtime":"2022-08-08T21:53:00.049Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-08T22:04:49.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
