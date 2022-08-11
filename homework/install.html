@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>AWS swap · GitBook</title>
+        <title>install · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,6 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    
+    <link rel="prev" href="yum.html" />
     
 
     </head>
@@ -125,7 +127,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="swap.html">
+        <li class="chapter " data-level="1.3.1" data-path="swap.html">
             
                 <a href="swap.html">
             
@@ -183,7 +185,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="install.html">
+        <li class="chapter active" data-level="1.4.3" data-path="install.html">
             
                 <a href="install.html">
             
@@ -231,7 +233,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >AWS swap</a>
+        <a href=".." >install</a>
     </h1>
 </div>
 
@@ -246,22 +248,63 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="aws-swap-&#xBA54;&#xBAA8;&#xB9AC;-&#xC124;&#xC815;&#xBC29;&#xBC95;">AWS SWAP &#xBA54;&#xBAA8;&#xB9AC; &#xC124;&#xC815;&#xBC29;&#xBC95;</h1>
-<h2 id="1-&#xC2A4;&#xC651;-&#xD30C;&#xC77C;-&#xC0DD;&#xC131;">1. &#xC2A4;&#xC651; &#xD30C;&#xC77C; &#xC0DD;&#xC131;</h2>
-<pre><code>sudo dd if=/dev/zero of=/swapfile bs=128M count=32
-</code></pre><h2 id="2-&#xAD8C;&#xD55C;-&#xBD80;&#xC5EC;">2. &#xAD8C;&#xD55C; &#xBD80;&#xC5EC;</h2>
-<pre><code>sudo chmod 600 /swapfile
-</code></pre><h2 id="3-swap-area-&#xC124;&#xC815;">3. SWAP AREA &#xC124;&#xC815;</h2>
-<pre><code>sudo mkswap /swapfile
-</code></pre><h2 id="4-swap-area&#xC5D0;-swap-&#xD30C;&#xC77C;-&#xCD94;&#xAC00;-&#xBC0F;-&#xD655;&#xC778;">4. SWAP AREA&#xC5D0; SWAP &#xD30C;&#xC77C; &#xCD94;&#xAC00; &#xBC0F; &#xD655;&#xC778;</h2>
-<pre><code>sudo swapon /swapfile
-sudo swapon -s
-</code></pre><h2 id="5-&#xBD80;&#xD305;&#xC2DC;-&#xC2A4;&#xC651;&#xD30C;&#xC77C;-&#xD65C;&#xC131;&#xD654;">5. &#xBD80;&#xD305;&#xC2DC; &#xC2A4;&#xC651;&#xD30C;&#xC77C; &#xD65C;&#xC131;&#xD654;</h2>
-<pre><code>sudo vi /etc/fstab
-</code></pre><p>&#xB9C8;&#xC9C0;&#xB9C9; &#xC904;&#xC5D0; /swapfile swap swap defaults 0 0 &#xCD94;&#xAC00;</p>
-<h2 id="6-&#xBA54;&#xBAA8;&#xB9AC;-&#xD655;&#xC778;">6. &#xBA54;&#xBAA8;&#xB9AC; &#xD655;&#xC778;</h2>
-<pre><code>free -h
-</code></pre>
+                                <h1 id="&#xD544;&#xC218;-&#xD504;&#xB85C;&#xADF8;&#xB7A8;-&#xC124;&#xCE58;">&#xD544;&#xC218; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC124;&#xCE58;</h1>
+<h2 id="1-&#xC5C5;&#xB370;&#xC774;&#xD2B8;">1. &#xC5C5;&#xB370;&#xC774;&#xD2B8;</h2>
+<pre><code># yum -y update
+</code></pre><h2 id="2-epel">2. epel</h2>
+<pre><code># yum list epel-release
+</code></pre><pre><code># sudo yum -y install epel-release.noarch
+
+# sudo yum -y install httpd
+</code></pre><pre><code>&#xC2E4;&#xD589; &#xBC0F; &#xD3EC;&#xD2B8;&#xC124;&#xC815;
+
+sudo systemctl start httpd
+sudo systemctl status httpd
+
+yum install firewalld
+sudo firewalld
+sudo firewall-cmd --zone=public --permanent --add-port=80/tcp
+sudo firewall-cmd --zone=public --list-all
+</code></pre><h2 id="3-jdk">3. jdk</h2>
+<pre><code># yum list | grep jdk
+</code></pre><pre><code># sudo yum -y install java-1.8.0-openjdk.x86\_64
+# sudo yum -y install java-1.8.0-openjdk-devel.x86\_64
+</code></pre><pre><code>&#xD658;&#xACBD;&#xBCC0;&#xC218; &#xC124;&#xC815;
+
+# which java
+
+# readlink -f /usr/bin/java
+
+/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86\_64/jre/bin/java
+
+# sudo vi /etc/profile
+
+export JAVA\_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86\_64/jre/bin/java
+export PATH=$PATH:$JAVA\_HOME/bin
+export CLASSPATH=$JAVA\_HOME/jre/lib:$JAVA\_HOME/lib/tools.jar
+
+:wq!
+
+# source /etc/profile
+
+# echo $JAVA\_HOME
+</code></pre><h2 id="4-mysql">4. mysql</h2>
+<pre><code># sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+
+# sudo yum localinstall -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+# sudo yum install -y mysql-community-server
+
+# sudo systemctl enable mysqld
+# sudo systemctl start mysqld
+
+# mysql --version
+# sudo netstat -plntu // 3306 &#xD3EC;&#xD2B8; &#xB728;&#xB294;&#xC9C0; &#xD655;&#xC778;
+# sudo systemctl restart mysqld
+</code></pre><h2 id="5-php">5. php</h2>
+<pre><code># yum list php
+</code></pre><pre><code># sudo yum -y install php.x86\_64
+</code></pre><h2 id="6-resin">6. resin</h2>
+
                                 
                                 </section>
                             
@@ -288,6 +331,10 @@ sudo swapon -s
 
             
                 
+                <a href="yum.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: yum">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
                 
             
         
@@ -296,7 +343,7 @@ sudo swapon -s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"AWS swap","level":"1.3.1","depth":2,"next":{"title":"Linux","level":"1.4","depth":1,"ref":"","articles":[{"title":"vi","level":"1.4.1","depth":2,"path":"homework/vi.md","ref":"homework/vi.md","articles":[]},{"title":"yum","level":"1.4.2","depth":2,"path":"homework/yum.md","ref":"homework/yum.md","articles":[]},{"title":"install","level":"1.4.3","depth":2,"path":"homework/install.md","ref":"homework/install.md","articles":[]}]},"previous":{"title":"AWS","level":"1.3","depth":1,"ref":"","articles":[{"title":"AWS swap","level":"1.3.1","depth":2,"path":"homework/swap.md","ref":"homework/swap.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/swap.md","mtime":"2022-08-03T23:39:23.764Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-11T04:50:27.152Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"install","level":"1.4.3","depth":2,"previous":{"title":"yum","level":"1.4.2","depth":2,"path":"homework/yum.md","ref":"homework/yum.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/install.md","mtime":"2022-08-11T01:51:37.661Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-11T04:50:27.152Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

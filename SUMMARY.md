@@ -7,3 +7,4 @@
 * [Linux]()
 	* [vi](homework/vi.md)
 	* [yum](homework/yum.md)
+	* [install](homework/install.md)
