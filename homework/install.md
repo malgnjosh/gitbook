@@ -90,4 +90,7 @@ export CLASSPATH=$JAVA\_HOME/jre/lib:$JAVA\_HOME/lib/tools.jar
 
 ## 6\. resin
 
+```
+# yum install resin-4.0.63-1.x86\_64.rpm
+```
 
