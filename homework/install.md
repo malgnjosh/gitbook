@@ -37,8 +37,8 @@ sudo firewall-cmd --zone=public --list-all
 ```
 
 ```
-# sudo yum -y install java-1.8.0-openjdk.x86\_64
-# sudo yum -y install java-1.8.0-openjdk-devel.x86\_64
+# sudo yum -y install java-1.8.0-openjdk.x86_64
+# sudo yum -y install java-1.8.0-openjdk-devel.x86_64
 ```
 
 ```
@@ -48,19 +48,19 @@ sudo firewall-cmd --zone=public --list-all
 
 # readlink -f /usr/bin/java
 
-/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86\_64/jre/bin/java
+/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86_64/jre/bin/java
 
 # sudo vi /etc/profile
 
-export JAVA\_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86\_64/jre/bin/java
-export PATH=$PATH:$JAVA\_HOME/bin
-export CLASSPATH=$JAVA\_HOME/jre/lib:$JAVA\_HOME/lib/tools.jar
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86_64/jre/bin/java
+export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar
 
 :wq!
 
 # source /etc/profile
 
-# echo $JAVA\_HOME
+# echo $JAVA_HOME
 ```
 
 ## 4\. mysql
@@ -85,9 +85,21 @@ export CLASSPATH=$JAVA\_HOME/jre/lib:$JAVA\_HOME/lib/tools.jar
 # yum list php
 ```
 ```
-# sudo yum -y install php.x86\_64
+# sudo yum -y install php.x86_64
 ```
 
 ## 6\. resin
 
+caucho.com 에서 rpm 파일을 다운받은 뒤 설치한다.
+
+```
+# yum install resin-4.0.63-1.x86_64.rpm
+```
+
+pro 버전의 경우 아래와 같이 설치할 수 있다.
+
+```
+# rpm --import http://caucho.com/download/rpm/RPM-GPG-KEY-caucho
+# yum install http://caucho.com/download/rpm/4.0.30/x86_64/resin-pro-4.0.30-1.x86_64.rpm
+```
 

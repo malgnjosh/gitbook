@@ -282,27 +282,27 @@ sudo firewall-cmd --zone=public --permanent --add-port=80/tcp
 sudo firewall-cmd --zone=public --list-all
 </code></pre><h2 id="3-jdk">3. jdk</h2>
 <pre><code># yum list | grep jdk
-</code></pre><pre><code># sudo yum -y install java-1.8.0-openjdk.x86\_64
-# sudo yum -y install java-1.8.0-openjdk-devel.x86\_64
+</code></pre><pre><code># sudo yum -y install java-1.8.0-openjdk.x86_64
+# sudo yum -y install java-1.8.0-openjdk-devel.x86_64
 </code></pre><pre><code>&#xD658;&#xACBD;&#xBCC0;&#xC218; &#xC124;&#xC815;
 
 # which java
 
 # readlink -f /usr/bin/java
 
-/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86\_64/jre/bin/java
+/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86_64/jre/bin/java
 
 # sudo vi /etc/profile
 
-export JAVA\_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86\_64/jre/bin/java
-export PATH=$PATH:$JAVA\_HOME/bin
-export CLASSPATH=$JAVA\_HOME/jre/lib:$JAVA\_HOME/lib/tools.jar
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86_64/jre/bin/java
+export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar
 
 :wq!
 
 # source /etc/profile
 
-# echo $JAVA\_HOME
+# echo $JAVA_HOME
 </code></pre><h2 id="4-mysql">4. mysql</h2>
 <pre><code># sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 
@@ -317,9 +317,14 @@ export CLASSPATH=$JAVA\_HOME/jre/lib:$JAVA\_HOME/lib/tools.jar
 # sudo systemctl restart mysqld
 </code></pre><h2 id="5-php">5. php</h2>
 <pre><code># yum list php
-</code></pre><pre><code># sudo yum -y install php.x86\_64
+</code></pre><pre><code># sudo yum -y install php.x86_64
 </code></pre><h2 id="6-resin">6. resin</h2>
-
+<p>caucho.com &#xC5D0;&#xC11C; rpm &#xD30C;&#xC77C;&#xC744; &#xB2E4;&#xC6B4;&#xBC1B;&#xC740; &#xB4A4; &#xC124;&#xCE58;&#xD55C;&#xB2E4;.</p>
+<pre><code># yum install resin-4.0.63-1.x86_64.rpm
+</code></pre><p>pro &#xBC84;&#xC804;&#xC758; &#xACBD;&#xC6B0; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xC124;&#xCE58;&#xD560; &#xC218; &#xC788;&#xB2E4;.</p>
+<pre><code># rpm --import http://caucho.com/download/rpm/RPM-GPG-KEY-caucho
+# yum install http://caucho.com/download/rpm/4.0.30/x86_64/resin-pro-4.0.30-1.x86_64.rpm
+</code></pre>
                                 
                                 </section>
                             
@@ -362,7 +367,7 @@ export CLASSPATH=$JAVA\_HOME/jre/lib:$JAVA\_HOME/lib/tools.jar
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"install","level":"1.4.3","depth":2,"next":{"title":"apache","level":"1.5","depth":1,"path":"homework/apache.md","ref":"homework/apache.md","articles":[]},"previous":{"title":"yum","level":"1.4.2","depth":2,"path":"homework/yum.md","ref":"homework/yum.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/install.md","mtime":"2022-08-11T01:51:37.661Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-16T05:57:01.263Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"install","level":"1.4.3","depth":2,"next":{"title":"apache","level":"1.5","depth":1,"path":"homework/apache.md","ref":"homework/apache.md","articles":[]},"previous":{"title":"yum","level":"1.4.2","depth":2,"path":"homework/yum.md","ref":"homework/yum.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/install.md","mtime":"2022-08-16T05:57:37.174Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-16T05:57:42.297Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
