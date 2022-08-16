@@ -1,33 +1,28 @@
 # 필수 프로그램 설치
 
-## 1\. 업데이트
+## 1\. 업데이트 및 epel 설치
 
 ```
 # yum -y update
 ```
 
-## 2\. epel
-
 ```
-# yum list epel-release
+# sudo amazon-linux-extras install epel -y
+
+# sudo yum repolist
 ```
 
+## 2\. apache
 ```
-# sudo yum -y install epel-release.noarch
-
 # sudo yum -y install httpd
 ```
 
 ```
-실행 및 포트설정
+실행
 
-sudo systemctl start httpd
-sudo systemctl status httpd
+# sudo systemctl start httpd
+# sudo systemctl status httpd
 
-yum install firewalld
-sudo firewalld
-sudo firewall-cmd --zone=public --permanent --add-port=80/tcp
-sudo firewall-cmd --zone=public --list-all
 ```
 
 ## 3\. jdk
@@ -39,28 +34,6 @@ sudo firewall-cmd --zone=public --list-all
 ```
 # sudo yum -y install java-1.8.0-openjdk.x86_64
 # sudo yum -y install java-1.8.0-openjdk-devel.x86_64
-```
-
-```
-환경변수 설정
-
-# which java
-
-# readlink -f /usr/bin/java
-
-/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86_64/jre/bin/java
-
-# sudo vi /etc/profile
-
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86_64/jre/bin/java
-export PATH=$PATH:$JAVA_HOME/bin
-export CLASSPATH=$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar
-
-:wq!
-
-# source /etc/profile
-
-# echo $JAVA_HOME
 ```
 
 ## 4\. mysql

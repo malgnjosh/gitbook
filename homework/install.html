@@ -264,45 +264,21 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#xD544;&#xC218;-&#xD504;&#xB85C;&#xADF8;&#xB7A8;-&#xC124;&#xCE58;">&#xD544;&#xC218; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC124;&#xCE58;</h1>
-<h2 id="1-&#xC5C5;&#xB370;&#xC774;&#xD2B8;">1. &#xC5C5;&#xB370;&#xC774;&#xD2B8;</h2>
+<h2 id="1-&#xC5C5;&#xB370;&#xC774;&#xD2B8;-&#xBC0F;-epel-&#xC124;&#xCE58;">1. &#xC5C5;&#xB370;&#xC774;&#xD2B8; &#xBC0F; epel &#xC124;&#xCE58;</h2>
 <pre><code># yum -y update
-</code></pre><h2 id="2-epel">2. epel</h2>
-<pre><code># yum list epel-release
-</code></pre><pre><code># sudo yum -y install epel-release.noarch
+</code></pre><pre><code># sudo amazon-linux-extras install epel -y
 
-# sudo yum -y install httpd
-</code></pre><pre><code>&#xC2E4;&#xD589; &#xBC0F; &#xD3EC;&#xD2B8;&#xC124;&#xC815;
+# sudo yum repolist
+</code></pre><h2 id="2-apache">2. apache</h2>
+<pre><code># sudo yum -y install httpd
+</code></pre><pre><code>&#xC2E4;&#xD589;
 
-sudo systemctl start httpd
-sudo systemctl status httpd
-
-yum install firewalld
-sudo firewalld
-sudo firewall-cmd --zone=public --permanent --add-port=80/tcp
-sudo firewall-cmd --zone=public --list-all
+# sudo systemctl start httpd
+# sudo systemctl status httpd
 </code></pre><h2 id="3-jdk">3. jdk</h2>
 <pre><code># yum list | grep jdk
 </code></pre><pre><code># sudo yum -y install java-1.8.0-openjdk.x86_64
 # sudo yum -y install java-1.8.0-openjdk-devel.x86_64
-</code></pre><pre><code>&#xD658;&#xACBD;&#xBCC0;&#xC218; &#xC124;&#xC815;
-
-# which java
-
-# readlink -f /usr/bin/java
-
-/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86_64/jre/bin/java
-
-# sudo vi /etc/profile
-
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86_64/jre/bin/java
-export PATH=$PATH:$JAVA_HOME/bin
-export CLASSPATH=$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar
-
-:wq!
-
-# source /etc/profile
-
-# echo $JAVA_HOME
 </code></pre><h2 id="4-mysql">4. mysql</h2>
 <pre><code># sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 
@@ -367,7 +343,7 @@ export CLASSPATH=$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"install","level":"1.4.3","depth":2,"next":{"title":"apache","level":"1.5","depth":1,"path":"homework/apache.md","ref":"homework/apache.md","articles":[]},"previous":{"title":"yum","level":"1.4.2","depth":2,"path":"homework/yum.md","ref":"homework/yum.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/install.md","mtime":"2022-08-16T05:57:37.174Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-16T05:57:42.297Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"install","level":"1.4.3","depth":2,"next":{"title":"apache","level":"1.5","depth":1,"path":"homework/apache.md","ref":"homework/apache.md","articles":[]},"previous":{"title":"yum","level":"1.4.2","depth":2,"path":"homework/yum.md","ref":"homework/yum.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/install.md","mtime":"2022-08-16T23:38:38.187Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-16T23:38:48.560Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
