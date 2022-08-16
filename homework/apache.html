@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>install · GitBook</title>
+        <title>apache · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="apache.html" />
     
-    
-    <link rel="prev" href="yum.html" />
+    <link rel="prev" href="install.html" />
     
 
     </head>
@@ -187,7 +185,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.3" data-path="install.html">
+        <li class="chapter " data-level="1.4.3" data-path="install.html">
             
                 <a href="install.html">
             
@@ -205,7 +203,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="apache.html">
+        <li class="chapter active" data-level="1.5" data-path="apache.html">
             
                 <a href="apache.html">
             
@@ -248,7 +246,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >install</a>
+        <a href=".." >apache</a>
     </h1>
 </div>
 
@@ -263,63 +261,80 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xD544;&#xC218;-&#xD504;&#xB85C;&#xADF8;&#xB7A8;-&#xC124;&#xCE58;">&#xD544;&#xC218; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC124;&#xCE58;</h1>
-<h2 id="1-&#xC5C5;&#xB370;&#xC774;&#xD2B8;">1. &#xC5C5;&#xB370;&#xC774;&#xD2B8;</h2>
-<pre><code># yum -y update
-</code></pre><h2 id="2-epel">2. epel</h2>
-<pre><code># yum list epel-release
-</code></pre><pre><code># sudo yum -y install epel-release.noarch
+                                <p>ServerRoot &quot;/etc/httpd&quot;</p>
+<p>Listen 80</p>
+<p>Include conf.modules.d/*.conf</p>
+<p>User apache
+Group apache</p>
+<p>ServerAdmin root@localhost</p>
+<directory>
+AllowOverride none
+Require all denied
+</directory>
 
-# sudo yum -y install httpd
-</code></pre><pre><code>&#xC2E4;&#xD589; &#xBC0F; &#xD3EC;&#xD2B8;&#xC124;&#xC815;
+<p>DocumentRoot &quot;/var/www/html&quot;</p>
+<directory "="" var="" www"="">
+AllowOverride None
+Require all granted
+</directory>
 
-sudo systemctl start httpd
-sudo systemctl status httpd
+<directory "="" var="" www="" html"="">
+Options Indexes FollowSymLinks
+AllowOverride None
+Require all granted
+</directory>
 
-yum install firewalld
-sudo firewalld
-sudo firewall-cmd --zone=public --permanent --add-port=80/tcp
-sudo firewall-cmd --zone=public --list-all
-</code></pre><h2 id="3-jdk">3. jdk</h2>
-<pre><code># yum list | grep jdk
-</code></pre><pre><code># sudo yum -y install java-1.8.0-openjdk.x86\_64
-# sudo yum -y install java-1.8.0-openjdk-devel.x86\_64
-</code></pre><pre><code>&#xD658;&#xACBD;&#xBCC0;&#xC218; &#xC124;&#xC815;
+<ifmodule dir_module="">
+DirectoryIndex index.html
+</ifmodule>
 
-# which java
+<files ".ht*"="">
+Require all denied
+</files>
 
-# readlink -f /usr/bin/java
+<p>ErrorLog &quot;logs/error_log&quot;</p>
+<p>LogLevel warn</p>
+<ifmodule log_config_module="">
+LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b \&quot;%{Referer}i\&quot; \&quot;%{User-Agent}i\&quot;&quot; combined
+LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b&quot; common
 
-/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86\_64/jre/bin/java
+<ifmodule logio_module="">
+LogFormat &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b \&quot;%{Referer}i\&quot; \&quot;%{User-Agent}i\&quot; %l %O&quot; combinedio
+</ifmodule>
 
-# sudo vi /etc/profile
+<p>CustomLog &quot;logs/access_log&quot; combined
+&lt;/IfModule&gt;</p>
+<ifmodule alias_module="">
+ScriptAlias /cgi-bin/ &quot;/var/www/cgi-bin/&quot;
+</ifmodule>
 
-export JAVA\_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.amzn2.0.2.x86\_64/jre/bin/java
-export PATH=$PATH:$JAVA\_HOME/bin
-export CLASSPATH=$JAVA\_HOME/jre/lib:$JAVA\_HOME/lib/tools.jar
+<directory "="" var="" www="" cgi-bin"="">
+AllowOverride None
+Options None
+Require all granted
+</directory>
 
-:wq!
+<ifmodule mime_module="">
+TypesConfig /etc/mime.types
+AddType application/x-compress .Z
+AddType application/x-gzip .gz .tgz
 
-# source /etc/profile
+AddType text/html .shtml
+AddOutputFilter INCLUDES .shtml
+</ifmodule>
 
-# echo $JAVA\_HOME
-</code></pre><h2 id="4-mysql">4. mysql</h2>
-<pre><code># sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+<p>AddDefaultCharset UTF-8</p>
+<ifmodule mime_magic_module="">
+MIMEMagicFile conf/magic
+</ifmodule>
 
-# sudo yum localinstall -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
-# sudo yum install -y mysql-community-server
+<p>EnableSendFile on</p>
+<ifmodule mod_http2.c="">
+Protocols h2 h2c http/1.1
+</ifmodule>
 
-# sudo systemctl enable mysqld
-# sudo systemctl start mysqld
-
-# mysql --version
-# sudo netstat -plntu // 3306 &#xD3EC;&#xD2B8; &#xB728;&#xB294;&#xC9C0; &#xD655;&#xC778;
-# sudo systemctl restart mysqld
-</code></pre><h2 id="5-php">5. php</h2>
-<pre><code># yum list php
-</code></pre><pre><code># sudo yum -y install php.x86\_64
-</code></pre><h2 id="6-resin">6. resin</h2>
-
+<p>IncludeOptional conf.d/*.conf</p>
+</ifmodule>
                                 
                                 </section>
                             
@@ -346,14 +361,10 @@ export CLASSPATH=$JAVA\_HOME/jre/lib:$JAVA\_HOME/lib/tools.jar
 
             
                 
-                <a href="yum.html" class="navigation navigation-prev " aria-label="Previous page: yum">
+                <a href="install.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: install">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="apache.html" class="navigation navigation-next " aria-label="Next page: apache">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -362,7 +373,7 @@ export CLASSPATH=$JAVA\_HOME/jre/lib:$JAVA\_HOME/lib/tools.jar
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"install","level":"1.4.3","depth":2,"next":{"title":"apache","level":"1.5","depth":1,"path":"homework/apache.md","ref":"homework/apache.md","articles":[]},"previous":{"title":"yum","level":"1.4.2","depth":2,"path":"homework/yum.md","ref":"homework/yum.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/install.md","mtime":"2022-08-11T01:51:37.661Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-16T05:57:01.263Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"apache","level":"1.5","depth":1,"previous":{"title":"install","level":"1.4.3","depth":2,"path":"homework/install.md","ref":"homework/install.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/apache.md","mtime":"2022-08-16T05:56:04.760Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-16T05:57:01.263Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
