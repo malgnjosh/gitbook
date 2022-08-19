@@ -12,6 +12,7 @@ virtual host에 대해 정의하고 있는 파일을 포함시키거나,
 
 virtual host 태그를 넣어 직접 정의할 수 있다.
 
+```
 <VirtualHost *:80>
     ServerName      vhostest.com
     ServerAdmin     josh@malgnsoft.com
@@ -20,6 +21,7 @@ virtual host 태그를 넣어 직접 정의할 수 있다.
         AllowOverride All
     </Directory>
 </VirtualHost>
+```
 
 ## 3. 위 DocumentRoot의 경로에 index.html 파일을 생성한다.
 

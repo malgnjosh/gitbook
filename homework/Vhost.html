@@ -300,16 +300,15 @@
 <p>httpd.conf&#xC5D0;</p>
 <p>virtual host&#xC5D0; &#xB300;&#xD574; &#xC815;&#xC758;&#xD558;&#xACE0; &#xC788;&#xB294; &#xD30C;&#xC77C;&#xC744; &#xD3EC;&#xD568;&#xC2DC;&#xD0A4;&#xAC70;&#xB098;,</p>
 <p>virtual host &#xD0DC;&#xADF8;&#xB97C; &#xB123;&#xC5B4; &#xC9C1;&#xC811; &#xC815;&#xC758;&#xD560; &#xC218; &#xC788;&#xB2E4;.</p>
-<virtualhost *:80="">
+<pre><code>&lt;VirtualHost *:80&gt;
     ServerName      vhostest.com
     ServerAdmin     josh@malgnsoft.com
     DocumentRoot    &quot;/var/www/html/test&quot;
-    <directory "="" var="" www="" html="" test"="">
+    &lt;Directory &quot;/var/www/html/test&quot;&gt;
         AllowOverride All
-    </directory>
-</virtualhost>
-
-<h2 id="3-&#xC704;-documentroot&#xC758;-&#xACBD;&#xB85C;&#xC5D0;-indexhtml-&#xD30C;&#xC77C;&#xC744;-&#xC0DD;&#xC131;&#xD55C;&#xB2E4;">3. &#xC704; DocumentRoot&#xC758; &#xACBD;&#xB85C;&#xC5D0; index.html &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD55C;&#xB2E4;.</h2>
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre><h2 id="3-&#xC704;-documentroot&#xC758;-&#xACBD;&#xB85C;&#xC5D0;-indexhtml-&#xD30C;&#xC77C;&#xC744;-&#xC0DD;&#xC131;&#xD55C;&#xB2E4;">3. &#xC704; DocumentRoot&#xC758; &#xACBD;&#xB85C;&#xC5D0; index.html &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD55C;&#xB2E4;.</h2>
 <h2 id="4-vhostestcom-&#xC73C;&#xB85C;-&#xC811;&#xC18D;&#xD558;&#xBA74;-indexhtml&#xC774;-&#xBCF4;&#xC774;&#xAC8C;-&#xB41C;&#xB2E4;">4. vhostest.com &#xC73C;&#xB85C; &#xC811;&#xC18D;&#xD558;&#xBA74; index.html&#xC774; &#xBCF4;&#xC774;&#xAC8C; &#xB41C;&#xB2E4;.</h2>
 
                                 
@@ -350,7 +349,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"virtual host","level":"1.5.2","depth":2,"previous":{"title":"httpd.conf","level":"1.5.1","depth":2,"path":"homework/apache.md","ref":"homework/apache.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/Vhost.md","mtime":"2022-08-19T06:54:21.096Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-19T06:54:31.269Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"virtual host","level":"1.5.2","depth":2,"previous":{"title":"httpd.conf","level":"1.5.1","depth":2,"path":"homework/apache.md","ref":"homework/apache.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/Vhost.md","mtime":"2022-08-19T06:55:39.676Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-19T06:55:46.612Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
