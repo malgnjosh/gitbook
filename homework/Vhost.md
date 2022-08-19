@@ -15,9 +15,12 @@ virtual host 태그를 넣어 직접 정의할 수 있다.
 <VirtualHost *:80>
     ServerName      vhostest.com
     ServerAdmin     josh@malgnsoft.com
-    DocumentRoot    "/var/www/test"
-    <Directory "/var/www/test">
+    DocumentRoot    "/var/www/html/test"
+    <Directory "/var/www/html/test">
         AllowOverride All
     </Directory>
 </VirtualHost>
 
+## 3. 위 DocumentRoot의 경로에 index.html 파일을 생성한다.
+
+## 4. vhostest.com 으로 접속하면 index.html이 보이게 된다.
