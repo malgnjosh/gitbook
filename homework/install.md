@@ -68,11 +68,3 @@ caucho.com 에서 rpm 파일을 다운받은 뒤 설치한다.
 ```
 $ yum install resin-4.0.63-1.x86_64.rpm
 ```
-
-pro 버전의 경우 아래와 같이 설치할 수 있다.
-
-```
-$ rpm --import http://caucho.com/download/rpm/RPM-GPG-KEY-caucho
-$ yum install http://caucho.com/download/rpm/4.0.30/x86_64/resin-pro-4.0.30-1.x86_64.rpm
-```
-
