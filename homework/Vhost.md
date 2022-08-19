@@ -23,6 +23,24 @@ virtual host 태그를 넣어 직접 정의할 수 있다.
 </VirtualHost>
 ```
 
-## 3. 위 DocumentRoot의 경로에 index.html 파일을 생성한다.
+## 3. 
 
-## 4. vhostest.com 으로 접속하면 index.html이 보이게 된다.
+hosts 에 aws의 public ipv4 ip 주소와 vhostest.com 을 적어준다.
+
+위 DocumentRoot의 경로에 index.html 파일을 생성한다.
+
+## 4. 
+
+vhostest.com 으로 접속하면 ip 주소를 입력했을 때와 다른 곳을 바라보게 된다.
+
+![img](./img/vtest.png)
+
+## 5.
+
+ip 주소를 입력했을 때 vhostest.com 과 같은 결과가 노출되는 경우
+```
+<VirtualHost *:80>
+    ServerName      ip주소
+</VirtualHost>
+```
+를 추가해준다.
