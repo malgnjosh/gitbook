@@ -29,18 +29,21 @@ hosts 에 aws의 public ipv4 ip 주소와 vhostest.com 을 적어준다.
 
 위 DocumentRoot의 경로에 index.html 파일을 생성한다.
 
-## 4. 
+## 4.
 
-vhostest.com 으로 접속하면 ip 주소를 입력했을 때와 다른 곳을 바라보게 된다.
+ip 주소를 입력했을 때 vhostest.com과 같은 결과가 노출되어
 
-![img](./img/vtest.png)
-
-## 5.
-
-ip 주소를 입력했을 때 vhostest.com 과 같은 결과가 노출되는 경우
 ```
 <VirtualHost *:80>
     ServerName      ip주소
 </VirtualHost>
 ```
-를 추가해준다.
+를 추가해주었다.
+
+## 5. 
+
+vhostest.com 으로 접속하면 ip 주소를 입력했을 때와 다른 곳을 바라보게 된다.
+
+![img](./img/vtest.png)
+
+
