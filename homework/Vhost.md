@@ -25,7 +25,9 @@ virtual host 태그를 넣어 직접 정의할 수 있다.
 
 ## 3. 
 
-hosts 에 aws의 public ipv4 ip 주소와 vhostest.com 을 적어준다.
+AWS 에서 80 port에 대한 인바운드 보안 규칙을 설정해준다.
+
+Windows/System32/Drivers/etc/hosts 에 aws의 public ipv4 ip 주소와 vhostest.com 을 적어준다.
 
 위 DocumentRoot의 경로에 index.html 파일을 생성한다.
 
