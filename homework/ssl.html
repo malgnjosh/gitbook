@@ -331,19 +331,43 @@ $ sudo ./make-dummy-cert localhost.crt
 $ sudo yum repolist all
 </code></pre><p>epel package&#xB97C; &#xBAA8;&#xB450; &#xC0AC;&#xC6A9;&#xAC00;&#xB2A5;&#xD55C; &#xC0C1;&#xD0DC;&#xB85C; &#xB9CC;&#xB4E4;&#xACE0; &#xD655;&#xC778;&#xD55C;&#xB2E4;.</p>
 <p>httpd.conf &#xC5D0;</p>
-<pre><code>&lt;VirtualHost *:80&gt;
+<pre><code>Listen 443
+
+&lt;VirtualHost *:80&gt;
     DocumentRoot &quot;/var/www/html&quot;
     ServerName &quot;malgnjosh.ze.to&quot;
     ServerAlias &quot;www.malgnjosh.ze.to&quot;
 &lt;/VirtualHost&gt;
 </code></pre><p>&#xB97C; &#xCD94;&#xAC00;&#xD55C;&#xB2E4;.</p>
 <pre><code>$ sudo apachectl restart
-</code></pre><h2 id="certbot-&#xC124;&#xCE58;">certbot &#xC124;&#xCE58;</h2>
+</code></pre><h2 id="certbot-&#xC124;&#xCE58;-&#xBC0F;-&#xC778;&#xC99D;&#xC11C;-&#xBC1C;&#xAE09;">certbot &#xC124;&#xCE58; &#xBC0F; &#xC778;&#xC99D;&#xC11C; &#xBC1C;&#xAE09;</h2>
 <pre><code>$ sudo amazon-linux-extras install epel -y
 $ sudo yum install -y certbot python2-certbot-apache
-$ sudo certbot
-</code></pre><p>certbot&#xC774; &#xC2E4;&#xD589;&#xB418;&#xBA74; &#xC774;&#xBA54;&#xC77C; &#xBC0F; &#xB3D9;&#xC758; &#xC5EC;&#xBD80; &#xB4F1;&#xC5D0; &#xC54C;&#xB9DE;&#xC740; &#xC815;&#xBCF4;&#xB97C; &#xC785;&#xB825;&#xD55C;&#xB2E4;.</p>
-<p><img src="img/ssl.png" alt="img"></p>
+</code></pre><pre><code>$ sudo certbot --webroot --installer apache -w /var/www/html/ -d malgnjosh.ze.to
+</code></pre><p>&#xC704; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xBA74; httpd.conf &#xC5D0;</p>
+<pre><code>&lt;VirtualHost *:80&gt;
+    ...
+    RewriteEngine on
+    RewriteCond %{SERVER_NAME} =malgnjosh.ze.to [OR]
+    RewriteCond %{SERVER_NAME} =www.malgnjosh.ze.to
+    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+&lt;/VirtualHost&gt;
+</code></pre><p>http://&#xB85C; &#xC811;&#xC18D;&#xC2DC; https://&#xB85C; &#xB9AC;&#xB2E4;&#xC774;&#xB809;&#xD2B8; &#xD574;&#xC8FC;&#xB294; &#xB0B4;&#xC6A9;&#xC774; &#xCD94;&#xAC00;&#xB41C;&#xB2E4;.</p>
+<p>&#xB610; /etc/httpd/conf/httpd-le-ssl.conf &#xB97C; &#xC0DD;&#xC131;&#xD558;&#xACE0; httpd.conf&#xC5D0;&#xC11C; Include &#xD558;&#xAC8C; &#xB418;&#xB294;&#xB370;,</p>
+<p>&#xC774; &#xD30C;&#xC77C;&#xC740; 443&#xC5D0; &#xB300;&#xD55C; &#xAC00;&#xC0C1;&#xD638;&#xC2A4;&#xD2B8;&#xB97C; &#xC124;&#xC815;&#xD558;&#xACE0; &#xC778;&#xC99D;&#xC11C; &#xD30C;&#xC77C; &#xACBD;&#xB85C;&#xB97C; &#xC9C0;&#xC815;&#xD55C;&#xB2E4;.</p>
+<pre><code>&lt;IfModule mod_ssl.c&gt;
+&lt;VirtualHost *:443&gt;
+    DocumentRoot &quot;/var/www/html&quot;
+    ServerName &quot;malgnjosh.ze.to&quot;
+    ServerAlias &quot;www.malgnjosh.ze.to&quot;
+RewriteEngine on
+
+SSLCertificateFile /etc/letsencrypt/live/malgnjosh.ze.to/fullchain.pem
+SSLCertificateKeyFile /etc/letsencrypt/live/malgnjosh.ze.to/privkey.pem
+Include /etc/letsencrypt/options-ssl-apache.conf
+&lt;/VirtualHost&gt;
+&lt;/IfModule&gt;
+</code></pre><p><img src="img/ssl.png" alt="img"></p>
 <p>&#xC778;&#xC99D;&#xC11C; &#xBC1C;&#xAE09;&#xC774; &#xC644;&#xB8CC;&#xB418;&#xC5C8;&#xB2E4;.</p>
 
                                 
@@ -384,7 +408,7 @@ $ sudo certbot
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ssl","level":"2.3.3","depth":2,"previous":{"title":"virtual host","level":"2.3.2","depth":2,"path":"homework/Vhost.md","ref":"homework/Vhost.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/ssl.md","mtime":"2022-08-22T23:44:36.587Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-22T23:55:59.531Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ssl","level":"2.3.3","depth":2,"previous":{"title":"virtual host","level":"2.3.2","depth":2,"path":"homework/Vhost.md","ref":"homework/Vhost.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/ssl.md","mtime":"2022-08-24T03:07:08.228Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-24T03:07:24.849Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
