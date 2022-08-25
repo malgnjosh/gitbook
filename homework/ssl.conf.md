@@ -50,7 +50,7 @@ SSL/TLS 프로토콜 엔진의 사용여부를 지정한다. 기본값은 OFF이
 SSLProtocol all -SSLv3
 ```
 
-SSL프로토콜의 버전을 SSLv3 으로 설정한다.
+SSL프로토콜 중 SSLv3 을 제외한 모든 프로토콜을 허용한다.
 
 ```
 SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5:!SEED:!IDEA
