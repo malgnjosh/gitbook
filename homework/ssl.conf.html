@@ -1,0 +1,470 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ssl.conf · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="ssl.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="markdown.html">
+            
+                <a href="markdown.html">
+            
+                    
+                    MarkDown
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Server</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    AWS
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="swap.html">
+            
+                <a href="swap.html">
+            
+                    
+                    AWS swap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    Linux
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="vi.html">
+            
+                <a href="vi.html">
+            
+                    
+                    vi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="yum.html">
+            
+                <a href="yum.html">
+            
+                    
+                    yum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    install
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    apache
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="apache.html">
+            
+                <a href="apache.html">
+            
+                    
+                    httpd.conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="Vhost.html">
+            
+                <a href="Vhost.html">
+            
+                    
+                    virtual host
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="ssl.html">
+            
+                <a href="ssl.html">
+            
+                    
+                    ssl
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3.4" data-path="ssl.conf.html">
+            
+                <a href="ssl.conf.html">
+            
+                    
+                    ssl.conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ssl.conf</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sslconf">ssl.conf</h1>
+<pre><code>SSLPassPhraseDialog exec: /usr/libexec/httpd-ssl-pass-dialog
+</code></pre><p>SSLPassPhraseDialog&#xB294; SSL&#xC774; &#xC801;&#xC6A9;&#xB41C; virtualhost&#xC5D0; &#xB300;&#xD55C; certificate&#xC640; private key&#xB97C; &#xC77D;&#xC5B4;&#xC628;&#xB2E4;.</p>
+<p>exec&#xC740; &#xAC01; key&#xC5D0; &#xB300;&#xD574; &#xD638;&#xCD9C;&#xD560; &#xC678;&#xBD80; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC124;&#xC815;&#xD55C;&#xB2E4;.</p>
+<pre><code>SSLSessionCache shmcb:/run/httpd/sslcache(512000)
+SSLSessionCacheTimeout 300
+</code></pre><p>&#xBCD1;&#xB82C; &#xC694;&#xCCAD; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xC18D;&#xB3C4;&#xB97C; &#xAC1C;&#xC120;&#xD558;&#xAE30; &#xC704;&#xD574; &#xCE90;&#xC2DC;&#xB97C; &#xC124;&#xC815;&#xD574;&#xC900;&#xB2E4;.
+shmcb &#xB294; &#xACF5;&#xC720; &#xBA54;&#xBAA8;&#xB9AC; &#xC138;&#xADF8;&#xBA3C;&#xD2B8;&#xC758; &#xACE0;&#xC131;&#xB2A5; &#xC2F8;&#xC774;&#xD074;&#xB9AD; &#xBC84;&#xD37C;&#xB97C; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;. &#xB370;&#xC774;&#xD130;&#xD30C;&#xC77C;&#xC758; &#xACBD;&#xB85C;&#xC640; &#xD06C;&#xAE30;&#xB97C; &#xC9C0;&#xC815;&#xD574;&#xC900;&#xB2E4;.
+Timeout &#xC2DC;&#xAC04;&#xC740; 300&#xCD08;&#xB85C; &#xC9C0;&#xC815;&#xD55C;&#xB2E4;. &#xCD5C;&#xC800; 15&#xCD08;&#xAE4C;&#xC9C0; &#xB0AE;&#xCD9C; &#xC218; &#xC788;&#xB2E4;.</p>
+<pre><code>SSLRandomSeed startup file:/dev/urandom 256
+SSLRandomSeed connect builtin
+</code></pre><p>&#xC11C;&#xBC84;&#xAC00; &#xC2DC;&#xC791;&#xB420; &#xB54C; seed source&#xB85C; &#xC678;&#xBD80; &#xD30C;&#xC77C;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA70; &#xBC14;&#xC774;&#xD2B8;&#xB294; 256&#xC73C;&#xB85C; &#xD55C;&#xB2E4;.
+&#xC0C8;&#xB85C;&#xC6B4; SSL &#xC5F0;&#xACB0;&#xC774; &#xC774;&#xB8E8;&#xC5B4;&#xC9C8; &#xB54C;, builtin seeding source &#xB97C; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;.</p>
+<pre><code>SSLCryptoDevice builtin
+</code></pre><p>&#xC554;&#xD638;&#xD654;&#xC7A5;&#xCE58;&#xB97C; builtin&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD55C;&#xB2E4;.</p>
+<pre><code>&lt;VirtualHost _default_:443&gt;
+
+ErrorLog logs/ssl_error_log
+TransferLog logs/ssl_access_log
+LogLevel warn
+</code></pre><p>443 &#xD3EC;&#xD2B8;&#xC5D0; &#xB300;&#xD55C; &#xAC00;&#xC0C1;&#xD638;&#xC2A4;&#xD2B8;&#xB97C; &#xC124;&#xC815;&#xD55C;&#xB2E4;.
+&#xC5D0;&#xB7EC;&#xB85C;&#xADF8; &#xBC0F; &#xC804;&#xC1A1;&#xB85C;&#xADF8;&#xB97C; &#xC800;&#xC7A5;&#xD560; &#xACBD;&#xB85C;&#xB97C; &#xC124;&#xC815;&#xD558;&#xACE0;
+&#xB85C;&#xADF8; &#xB808;&#xBCA8;&#xC740; &#xACBD;&#xACE0; &#xC218;&#xC900;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD55C;&#xB2E4;.</p>
+<pre><code>SSLEngine on
+</code></pre><p>SSL/TLS &#xD504;&#xB85C;&#xD1A0;&#xCF5C; &#xC5D4;&#xC9C4;&#xC758; &#xC0AC;&#xC6A9;&#xC5EC;&#xBD80;&#xB97C; &#xC9C0;&#xC815;&#xD55C;&#xB2E4;. &#xAE30;&#xBCF8;&#xAC12;&#xC740; OFF&#xC774;&#xB2E4;.</p>
+<pre><code>SSLProtocol all -SSLv3
+</code></pre><p>SSL&#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC758; &#xBC84;&#xC804;&#xC744; SSLv3 &#xC73C;&#xB85C; &#xC124;&#xC815;&#xD55C;&#xB2E4;.</p>
+<pre><code>SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5:!SEED:!IDEA
+</code></pre><p>ssl handshake &#xB2E8;&#xACC4;&#xC5D0;&#xC11C; &#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC640; &#xD611;&#xC0C1;&#xD560; &#xC218; &#xC788;&#xB294; cipher suite&#xB97C; &#xC124;&#xC815;&#xD55C;&#xB2E4;.</p>
+<p>: &#xC744; &#xAD6C;&#xBD84;&#xC790;&#xB85C; &#xC4F4;&#xB2E4;. !&#xB294; not&#xC744; &#xC758;&#xBBF8;&#xD55C;&#xB2E4;.</p>
+<p>cipher suite&#xC758; 4&#xAC00;&#xC9C0; &#xC8FC;&#xC18D;&#xC131;&#xC740;</p>
+<p>&#xD0A4; &#xAD50;&#xD658; key exchange algorithm
+&#xC778;&#xC99D; authentication algorithm
+&#xC554;&#xD638; &#xC778;&#xCF54;&#xB529; cipher encoding algorithm
+&#xBA54;&#xC2DC;&#xC9C0; &#xC778;&#xC99D; mac digest algorithm</p>
+<p>&#xC774;&#xB2E4;.</p>
+<p>&#xC704;&#xC758; &#xACBD;&#xC6B0;</p>
+<p>Triple-DES &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBAA8;&#xB4E0; cipher &#xAC00; &#xC0AC;&#xC6A9;&#xAC00;&#xB2A5;&#xD558;&#xACE0;
+128bit &#xC554;&#xD638;&#xD654; cipher &#xAC00; &#xC0AC;&#xC6A9;&#xAC00;&#xB2A5;&#xD558;&#xB2E4;.
+null &#xC778;&#xC99D;&#xC740; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.
+&#xBA54;&#xC2DC;&#xC9C0; &#xC778;&#xC99D; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC5D0;&#xC11C; MD5&#xB97C; &#xC81C;&#xC678;&#xD558;&#xACE0;
+&#xC554;&#xD638; &#xC778;&#xCF54;&#xB529;&#xC5D0;&#xC11C; IDEA&#xC640; SEED&#xB97C; &#xC81C;&#xC678;&#xD588;&#xB2E4;.</p>
+<pre><code>SSLCertificateFile /etc/pki/tls/certs/localhost.crt
+</code></pre><p>&#xC99D;&#xBA85;&#xC11C; &#xD30C;&#xC77C;&#xC744; &#xC9C0;&#xC815;&#xD55C;&#xB2E4;.</p>
+<pre><code>&lt;Files ~ &quot;\.(cgilshtml|phtml|php3?)$&quot;&gt;
+  SSLOptions +StdEnvVars
+&lt;/Files&gt;
+&lt;Directory &quot;/var/www/cgi-bin&quot;&gt;
+  SSLOptions +StdEnvVars
+&lt;/Directory&gt;
+</code></pre><p>cgi shtml phtml php3 &#xC744; &#xD3EC;&#xD568;&#xD558;&#xB294; &#xD30C;&#xC77C;&#xC5D0; &#xB300;&#xD574;&#xC11C; StdEnvVars &#xC635;&#xC158;&#xC744; &#xD65C;&#xC131;&#xD654;&#xD55C;&#xB2E4;.</p>
+<p>CGI/SSI &#xD658;&#xACBD;&#xBCC0;&#xC218;&#xC5D0; &#xAD00;&#xB828;&#xB41C; &#xAE30;&#xBCF8; &#xC14B;&#xC774; &#xC0DD;&#xC131;&#xB41C;&#xB2E4;.</p>
+<p>cgi-bin &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB3C4; StdEnvVars &#xC635;&#xC158;&#xC744; &#xD65C;&#xC131;&#xD654;&#xD55C;&#xB2E4;.</p>
+<pre><code>BrowserMatch &quot;MSIE [2-5]&quot; \
+  nokeepalive ssl-unclean-shutdown \
+  downgrade-1.0 force-response-1.0
+
+CustomLog logs/ssl_request_log \
+  &quot;%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \&quot;%r\ %b&quot;
+&lt;/VirtualHost&gt;
+</code></pre><p>keepalive&#xB294; http &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC744; &#xC774;&#xC6A9;&#xD55C; &#xC9C0;&#xC18D;&#xC801;&#xC778; &#xC5F0;&#xACB0;&#xC744; &#xC758;&#xBBF8;&#xD55C;&#xB2E4;.</p>
+<p>IE2&#xC5D0;&#xC11C; 5&#xAE4C;&#xC9C0;&#xC758; &#xBE0C;&#xB77C;&#xC6B0;&#xC800;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB294; keepalive&#xB97C; &#xBB34;&#xC2DC;&#xD55C;&#xB2E4;.</p>
+<p>request&#xAC00; &#xC774;&#xD6C4; &#xBC84;&#xC804;&#xC774;&#xB354;&#xB77C;&#xB3C4; HTTP/1.0 &#xC73C;&#xB85C; &#xCC98;&#xB9AC;&#xD55C;&#xB2E4;.</p>
+<p>HTTP/1.0 &#xC694;&#xCCAD;&#xC744; &#xD558;&#xB294; &#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC5D0;&#xAC8C; HTTP/1.0 &#xC751;&#xB2F5;&#xC744; &#xAC15;&#xC81C;&#xD55C;&#xB2E4;. HTTP/1.1&#xC751;&#xB2F5;&#xC744; &#xBC1B;&#xC73C;&#xBA74; &#xC81C;&#xB300;&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xC77C;&#xBD80; &#xBE0C;&#xB77C;&#xC6B0;&#xC800;&#xAC00; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC774;&#xB2E4;.</p>
+<p>&#xC774;&#xC0C1;&#xC740; &#xAD6C;&#xD615; IE&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xC624;&#xB958;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xC124;&#xC815;&#xC774;&#xB2E4;.</p>
+<p>&#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; &#xCEE4;&#xC2A4;&#xD140;&#xB85C;&#xADF8;&#xB97C; &#xC124;&#xC815;&#xD55C;&#xB2E4;.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ssl.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: ssl">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ssl.conf","level":"2.3.4","depth":2,"previous":{"title":"ssl","level":"2.3.3","depth":2,"path":"homework/ssl.md","ref":"homework/ssl.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/ssl.conf.md","mtime":"2022-08-25T23:28:11.097Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-25T23:29:27.068Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
