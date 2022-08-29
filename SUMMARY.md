@@ -15,3 +15,5 @@
 	* [virtual host](homework/Vhost.md)
 	* [ssl](homework/ssl.md)
 	* [ssl.conf](homework/ssl.conf.md)
+* [resin]()
+	* [with apache](homework/resin1.md)
