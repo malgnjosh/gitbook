@@ -69,7 +69,7 @@ export RESIN_HOME
 
 ## resin.xml 설정
 
-caucho 모듈과 레진 서버와의 커뮤니케이션은 서버 포트를 이용해서 이루어지므로 다음 내용을 추가해준다.
+caucho 모듈과 레진 서버와의 커뮤니케이션은 서버 포트를 이용해서 이루어진다.
 
 
 ```
@@ -77,7 +77,8 @@ caucho 모듈과 레진 서버와의 커뮤니케이션은 서버 포트를 이�
   <web-app id='/' document-directory="/usr/local/apache/htdocs"/>
 </host>
 ```
-apache의 document 디렉토리 경로를 설정해준다.
+
+위와 같이 apache의 document 디렉토리 경로를 설정해준다.
 
 레진 서버를 시작해본다.
 
@@ -128,4 +129,4 @@ htdocs 아래에 test.jsp를 만들고 아래 내용을 넣는다.
 
 resin.com/test.jsp 로 접속하면 다음과 같이 출력된다.
 
-![img](/img/res.png)
+![img](./img/res.png)
