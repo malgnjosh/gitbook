@@ -51,7 +51,7 @@ $ wget http://caucho.com/download/resin-4.0.66.tar.gz
 
 $ tar xvfz resin-4.0.66.tar.gz
 
-$ ./configure --with-apxs=/usr/local/apache/bin/apxs
+$ ./configure --prefix=/usr/local/resin --with-apxs=/usr/local/apache/bin/apxs
 
 $ make
 
@@ -62,8 +62,7 @@ $ make install
 
 ```
 $ vi /etc/profile
-resin location
-RESIN_HOME=/usr/local/share/resin
+RESIN_HOME=/usr/local/resin
 export RESIN_HOME
 ```
 위와 같이 환경변수 설정을 하면 레진의 경로를 쉽게 찾을 수 있다.
@@ -74,22 +73,59 @@ caucho 모듈과 레진 서버와의 커뮤니케이션은 서버 포트를 이�
 
 
 ```
-<cluster id="app-tier">
-  <server id="" address="127.0.0.1" port="6800"/>
-</cluster>
-
+<host id="resin.com" root-directory="/usr/local/apache">
+  <web-app id='/' document-directory="/usr/local/apache/htdocs"/>
+</host>
 ```
+apache의 document 디렉토리 경로를 설정해준다.
 
-```
-<server>
-  <host id="">
-    <web-app id='/' document-directory="/usr/local/apache/htdocs"/>
-  </host>
-</server>
-```
-
-app-tier 레진 서버를 시작해본다.
+레진 서버를 시작해본다.
 
 ```
 $ RESIN_HOME/bin/resin.sh start 
 ```
+
+## httpd.conf
+
+아래 내용을 추가해준다.
+
+configure에 의해 일부는 자동으로 생성된다.
+
+```
+LoadModule caucho_module /usr/local/apache/modules/mod_caucho.so
+
+ResinConfigServer localhost 6800
+<Location /caucho-status>
+  SetHandler caucho-status
+</Location>
+
+CauchoConfigCacheDirectory /tmp
+CauchoStatus yes
+```
+
+```
+Include conf/extra/httpd-vhosts.conf
+```
+가상호스트를 사용한다.
+
+extra/httpd-vhosts.conf 파일에
+
+```
+<VirtualHost 52.78.63.144>
+    DocumentRoot "/usr/local/apache/htdocs"
+    ServerName resin.com
+    <Directory "/usr/local/apache/htdocs">
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+를 추가한다.
+
+htdocs 아래에 test.jsp를 만들고 아래 내용을 넣는다.
+```
+2 + 2 = <%= 2 + 2 %>
+```
+
+resin.com/test.jsp 로 접속하면 다음과 같이 출력된다.
+
+![img](/img/res.png)
