@@ -375,33 +375,36 @@ $ sudo make install
 <pre><code>checking whether the C compiler works... no
 </code></pre><p>&#xC774; &#xACBD;&#xC6B0;&#xB294; gcc&#xB97C; &#xC124;&#xCE58;&#xD574;&#xC900;&#xB2E4;.</p>
 <pre><code>$ sudo yum -y install gcc gcc-devel
-</code></pre><h2 id="modcauchoso-&#xCEF4;&#xD30C;&#xC77C;">mod_caucho.so &#xCEF4;&#xD30C;&#xC77C;</h2>
+</code></pre><p>&#xB9CC;&#xC57D; &#xC544;&#xD30C;&#xCE58;&#xAC00; &#xC774;&#xBBF8; &#xC124;&#xCE58;&#xB418;&#xC5B4; &#xC788;&#xC73C;&#xB098; apxs&#xB97C; &#xCC3E;&#xC744; &#xC218; &#xC5C6;&#xB2E4;&#xBA74;</p>
+<pre><code>$ sudo yum -y install httpd-devel
+
+$ which apxs
+</code></pre><p>&#xCC3E;&#xC740; apxs&#xC758; &#xACBD;&#xB85C;&#xB97C; &#xAE30;&#xC5B5;&#xD574;&#xB454;&#xB2E4;.</p>
+<h2 id="modcauchoso-&#xCEF4;&#xD30C;&#xC77C;">mod_caucho.so &#xCEF4;&#xD30C;&#xC77C;</h2>
 <pre><code>$ wget http://caucho.com/download/resin-4.0.66.tar.gz
 
 $ tar xvfz resin-4.0.66.tar.gz
 
-$ ./configure --prefix=/usr/local/resin --with-apxs=/usr/local/apache/bin/apxs
+$ ./configure --with-apxs=/usr/local/apache/bin/apxs
 
 $ make
 
 $ make install
 </code></pre><p>&#xB9C8;&#xCC2C;&#xAC00;&#xC9C0;&#xB85C; &#xB808;&#xC9C4;&#xC758; &#xC18C;&#xC2A4; &#xCF54;&#xB4DC;&#xB97C; &#xB2E4;&#xC6B4; &#xBC1B;&#xC544; &#xC555;&#xCD95;&#xC744; &#xD480;&#xACE0; apxs&#xC640; &#xAD00;&#xB828;&#xB41C; &#xC124;&#xC815;&#xC744; &#xD574;&#xC900;&#xB2E4;. apxs&#xB294; perl &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB85C;, resin&#xC73C;&#xB85C; &#xD558;&#xC5EC;&#xAE08; &#xC544;&#xD30C;&#xCE58; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB4E4;&#xC774; &#xC5B4;&#xB5BB;&#xAC8C; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xC54C; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xD55C;&#xB2E4;.</p>
-<pre><code>$ vi /etc/profile
-RESIN_HOME=/usr/local/resin
-export RESIN_HOME
-</code></pre><p>&#xC704;&#xC640; &#xAC19;&#xC774; &#xD658;&#xACBD;&#xBCC0;&#xC218; &#xC124;&#xC815;&#xC744; &#xD558;&#xBA74; &#xB808;&#xC9C4;&#xC758; &#xACBD;&#xB85C;&#xB97C; &#xC27D;&#xAC8C; &#xCC3E;&#xC744; &#xC218; &#xC788;&#xB2E4;.</p>
+<pre><code>/usr/lib64/httpd/modules/mod_caucho.so
+</code></pre><p>&#xAC00; &#xC0DD;&#xC131;&#xB418;&#xC5C8;&#xB2E4;&#xBA74; resin&#xC744; &#xB2E4;&#xC2DC; &#xC81C;&#xAC70;&#xD574;&#xC900;&#xB2E4;.</p>
 <h2 id="resinxml-&#xC124;&#xC815;">resin.xml &#xC124;&#xC815;</h2>
 <p>caucho &#xBAA8;&#xB4C8;&#xACFC; &#xB808;&#xC9C4; &#xC11C;&#xBC84;&#xC640;&#xC758; &#xCEE4;&#xBBA4;&#xB2C8;&#xCF00;&#xC774;&#xC158;&#xC740; &#xC11C;&#xBC84; &#xD3EC;&#xD2B8;&#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xC774;&#xB8E8;&#xC5B4;&#xC9C4;&#xB2E4;.</p>
-<pre><code>&lt;host id=&quot;resin.com&quot; root-directory=&quot;/usr/local/apache&quot;&gt;
-  &lt;web-app id=&apos;/&apos; document-directory=&quot;/usr/local/apache/htdocs&quot;/&gt;
+<pre><code>&lt;host id=&quot;otes.com&quot; root-directory=&quot;/var/www/&quot;&gt;
+    &lt;web-app id=&quot;/&quot; document-directory=&quot;/var/www/html&quot;&gt;
 &lt;/host&gt;
 </code></pre><p>&#xC704;&#xC640; &#xAC19;&#xC774; apache&#xC758; document &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xACBD;&#xB85C;&#xB97C; &#xC124;&#xC815;&#xD574;&#xC900;&#xB2E4;.</p>
 <p>&#xB808;&#xC9C4; &#xC11C;&#xBC84;&#xB97C; &#xC2DC;&#xC791;&#xD574;&#xBCF8;&#xB2E4;.</p>
-<pre><code>$ RESIN_HOME/bin/resin.sh start
+<pre><code>$ sudo systemctl start resin
 </code></pre><h2 id="httpdconf">httpd.conf</h2>
 <p>&#xC544;&#xB798; &#xB0B4;&#xC6A9;&#xC744; &#xCD94;&#xAC00;&#xD574;&#xC900;&#xB2E4;.</p>
 <p>configure&#xC5D0; &#xC758;&#xD574; &#xC77C;&#xBD80;&#xB294; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC0DD;&#xC131;&#xB41C;&#xB2E4;.</p>
-<pre><code>LoadModule caucho_module /usr/local/apache/modules/mod_caucho.so
+<pre><code>LoadModule caucho_module /usr/lib64/httpd/modules/mod_caucho.so
 
 ResinConfigServer localhost 6800
 &lt;Location /caucho-status&gt;
@@ -410,20 +413,20 @@ ResinConfigServer localhost 6800
 
 CauchoConfigCacheDirectory /tmp
 CauchoStatus yes
-</code></pre><pre><code>Include conf/extra/httpd-vhosts.conf
+</code></pre><pre><code>Include conf/vhost.conf
 </code></pre><p>&#xAC00;&#xC0C1;&#xD638;&#xC2A4;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;.</p>
-<p>extra/httpd-vhosts.conf &#xD30C;&#xC77C;&#xC5D0;</p>
+<p>vhost.conf &#xD30C;&#xC77C;&#xC5D0;</p>
 <pre><code>&lt;VirtualHost 52.78.63.144&gt;
-    DocumentRoot &quot;/usr/local/apache/htdocs&quot;
-    ServerName resin.com
-    &lt;Directory &quot;/usr/local/apache/htdocs&quot;&gt;
+    DocumentRoot &quot;/var/www/html&quot;
+    ServerName otes.com
+    &lt;Directory &quot;/var/www/html&quot;&gt;
         Require all granted
     &lt;/Directory&gt;
 &lt;/VirtualHost&gt;
 </code></pre><p>&#xB97C; &#xCD94;&#xAC00;&#xD55C;&#xB2E4;.</p>
-<p>htdocs &#xC544;&#xB798;&#xC5D0; test.jsp&#xB97C; &#xB9CC;&#xB4E4;&#xACE0; &#xC544;&#xB798; &#xB0B4;&#xC6A9;&#xC744; &#xB123;&#xB294;&#xB2E4;.</p>
+<p>html &#xC544;&#xB798;&#xC5D0; test.jsp&#xB97C; &#xB9CC;&#xB4E4;&#xACE0; &#xC544;&#xB798; &#xB0B4;&#xC6A9;&#xC744; &#xB123;&#xB294;&#xB2E4;.</p>
 <pre><code>2 + 2 = &lt;%= 2 + 2 %&gt;
-</code></pre><p>resin.com/test.jsp &#xB85C; &#xC811;&#xC18D;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</p>
+</code></pre><p>otes.com/test.jsp &#xB85C; &#xC811;&#xC18D;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</p>
 <p><img src="img/res.png" alt="img"></p>
 
                                 
@@ -460,7 +463,7 @@ CauchoStatus yes
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"with apache","level":"2.4.1","depth":2,"previous":{"title":"resin","level":"2.4","depth":1,"ref":"","articles":[{"title":"with apache","level":"2.4.1","depth":2,"path":"homework/resin1.md","ref":"homework/resin1.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/resin1.md","mtime":"2022-08-29T09:18:07.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-29T09:18:20.182Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"with apache","level":"2.4.1","depth":2,"previous":{"title":"resin","level":"2.4","depth":1,"ref":"","articles":[{"title":"with apache","level":"2.4.1","depth":2,"path":"homework/resin1.md","ref":"homework/resin1.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"homework/resin1.md","mtime":"2022-08-31T14:40:47.680Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-31T14:41:22.031Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
